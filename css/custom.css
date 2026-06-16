@@ -24,3 +24,103 @@
 [data-theme="dark"] #page-header::before {
     background: transparent !important;
 }
+
+/* 小冰分类分类磁铁黑夜模式适配 */
+/* 一般状态 */
+[data-theme="dark"] .magnet_link_context {
+    background: #1e1e1e;
+    color: antiquewhite;
+}
+
+/* 鼠标悬浮状态 */
+[data-theme="dark"] .magnet_link_context:hover {
+    background: #3ecdf1;
+    color: #f2f2f2;
+}
+
+#pagination {
+    width: 100%;
+    margin: auto;
+}
+
+/* @font-face { */
+/* 为载入的字体取名字(随意) */
+/* font-family: 'YSHST'; */
+/* 字体文件地址(相对或者绝对路径都可以) */
+/* src: url(/font/优设好身体.woff2); */
+/* 定义加粗样式(加粗多少) */
+/*   font-weight: normal; */
+/* 定义字体样式(斜体/非斜体) */
+/* font-style: normal; */
+/* 定义显示样式 */
+/* font-display: block; */
+/* } */
+
+/* ===================================================
+   hexo-butterfly-article-double-row 双栏修复
+   根因: Butterfly 5.x 在 #recent-posts 与 .recent-post-item
+   之间多了 .recent-post-items 包装层, 插件 CSS 的
+   `#recent-posts > .recent-post-item` 直接子元素选择器不匹配。
+   此处修正选择器, 移除 `>` 并将 .recent-post-items 纳入链中。
+   =================================================== */
+#recent-posts .recent-post-items {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin-top: -1rem;
+}
+
+#recent-posts .recent-post-items .recent-post-item {
+  margin-top: 1rem;
+  display: inline-block !important;
+  height: auto !important;
+  width: 49%;
+  flex-direction: column;
+  align-items: normal !important;
+  margin-bottom: 0 !important;
+}
+
+#recent-posts .recent-post-items .recent-post-item .post_cover {
+  width: 100%;
+  height: 200px;
+}
+
+#recent-posts .recent-post-items .recent-post-item .post_cover .post-bg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#recent-posts .recent-post-items .recent-post-item > .recent-post-info {
+  padding: 0 40px;
+  margin-top: 1em;
+  width: 100% !important;
+}
+
+#recent-posts .recent-post-items .recent-post-item > .recent-post-info > .content {
+  display: none;
+}
+
+#recent-posts .recent-post-items .recent-post-item > .recent-post-info > .article-title {
+  -webkit-line-clamp: 1;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+#recent-posts .recent-post-items .recent-post-item > .recent-post-info > .article-meta-wrap {
+  margin-bottom: 1rem;
+}
+
+/* 修复左侧圆角——因为在列布局中 cover 在顶部 */
+#recent-posts .recent-post-items .recent-post-item .post_cover img.post-bg,
+#recent-posts .recent-post-items .recent-post-item .post_cover {
+  border-radius: 8px 8px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  #recent-posts .recent-post-items .recent-post-item {
+    width: 100%;
+  }
+}
